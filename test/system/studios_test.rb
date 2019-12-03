@@ -14,6 +14,7 @@ class StudiosTest < ApplicationSystemTestCase
     visit studios_url
     click_on "New Studio"
 
+    fill_in "Founder", with: @studio.founder
     fill_in "Location", with: @studio.location
     fill_in "Musician", with: @studio.musician_id
     fill_in "Name", with: @studio.name
@@ -27,6 +28,7 @@ class StudiosTest < ApplicationSystemTestCase
     visit studios_url
     click_on "Edit", match: :first
 
+    fill_in "Founder", with: @studio.founder
     fill_in "Location", with: @studio.location
     fill_in "Musician", with: @studio.musician_id
     fill_in "Name", with: @studio.name

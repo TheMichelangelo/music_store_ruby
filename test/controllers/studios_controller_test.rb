@@ -17,7 +17,7 @@ class StudiosControllerTest < ActionDispatch::IntegrationTest
 
   test "should create studio" do
     assert_difference('Studio.count') do
-      post studios_url, params: { studio: { location: @studio.location, musician_id: @studio.musician_id, name: @studio.name } }
+      post studios_url, params: { studio: { founder: @studio.founder, location: @studio.location, musician_id: @studio.musician_id, name: @studio.name } }
     end
 
     assert_redirected_to studio_url(Studio.last)
@@ -34,7 +34,7 @@ class StudiosControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update studio" do
-    patch studio_url(@studio), params: { studio: { location: @studio.location, musician_id: @studio.musician_id, name: @studio.name } }
+    patch studio_url(@studio), params: { studio: { founder: @studio.founder, location: @studio.location, musician_id: @studio.musician_id, name: @studio.name } }
     assert_redirected_to studio_url(@studio)
   end
 

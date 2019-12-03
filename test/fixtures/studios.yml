@@ -2,10 +2,12 @@
 
 one:
   name: MyString
-  location: 
+  location: MyString
+  founder: MyString
   musician_id: 1
 
 two:
   name: MyString
-  location: 
+  location: MyString
+  founder: MyString
   musician_id: 1
