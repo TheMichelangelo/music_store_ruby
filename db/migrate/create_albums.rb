@@ -5,7 +5,7 @@ class CreateAlbums < ActiveRecord::Migration[5.2]
       t.integer :price
       t.string :type
       t.string :genre
-      t.integer :musitian_id
+      t.integer :musician_id
 
       t.timestamps
     end
