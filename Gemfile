@@ -38,6 +38,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 gem 'faker', '~> 1.6', '>= 1.6.6'
 gem 'populator', '~> 1.0'
+gem 'clearance'
 
 group :development, :test do
   gem 'sqlite3', '1.3.9'
