@@ -1,5 +1,5 @@
 class MusiciansController < ApplicationController
-  before_action :set_musician, only: [:show]
+  before_action :set_musician, only: [:show, :edit, :update, :destroy]
 
   # GET /musicians
   # GET /musicians.json

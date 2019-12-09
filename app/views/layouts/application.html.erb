@@ -1,15 +1,40 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>MusicStoreApp</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<head>
+  <%= csrf_meta_tag %>
+  <title>Music store</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="/index">Music store</a>
+      </div>
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="/index">Home</a></li>
+        <li><a href="/albums">Albums</a></li>
+        <li><a href="/musicians">Musicians</a></li>
+        <li><a href="/studios">Studios</a></li>
+        <% if signed_in? -%>
+          <li><%= button_to t(".sign_out"), sign_out_path, method: :delete %></li>
+        <% else -%>
+          <li><%= link_to t(".sign_in"), sign_in_path %></li>
+        <% end -%>
+      </ul>
+    </div>
+  </nav>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+  <div id="flash">
+    <% flash.each do |key, value| -%>
+      <div id="flash_<%= key %>"><%=h value %></div>
+    <% end %>
+  </div>
 
-  <body>
-    <%= yield %>
-  </body>
+  <%= yield %>
+</body>
 </html>
