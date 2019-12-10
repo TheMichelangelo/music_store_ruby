@@ -1,14 +1,11 @@
 class MigrateAll < ActiveRecord::Migration[5.2]
   def change
-    drop_table :studios
-    drop_table :albums
-    drop_table  :musicians
 
     create_table :studios do |t|
+      t.belongs_to :album
       t.string :name
       t.string :location
       t.string :founder
-      t.belongs_to :musicians
 
       t.timestamps
     end
@@ -27,7 +24,7 @@ class MigrateAll < ActiveRecord::Migration[5.2]
       t.string :surname
       t.integer :age
       t.string :home_adress
-      t.belongs_to :studios
+      t.belongs_to :studio,index: { unique: true }, foreign_key: true
 
       t.timestamps
     end

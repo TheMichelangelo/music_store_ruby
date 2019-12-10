@@ -2,5 +2,5 @@
 
 <%= render 'form', musician: @musician %>
 
-<%= link_to 'Show', @musician %> |
-<%= link_to 'Back', musicians_path %>
+<%= link_to 'Show', @musician, {:class => 'btn btn-info'} %> |
+<%= link_to 'Back', musicians_path, {:class => 'btn btn-danger'} %>

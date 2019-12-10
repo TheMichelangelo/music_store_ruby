@@ -10,6 +10,7 @@ class StudiosController < ApplicationController
   # GET /studios/1
   # GET /studios/1.json
   def show
+    @studio = Studio.find(params[:id])
   end
 
   # GET /studios/new

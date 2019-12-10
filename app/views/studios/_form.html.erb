@@ -13,25 +13,20 @@
 
   <div class="field">
     <%= form.label :name %>
-    <%= form.text_field :name %>
+    <%= form.text_field :name, {:class => 'form-control'}  %>
   </div>
 
   <div class="field">
     <%= form.label :location %>
-    <%= form.text_field :location %>
+    <%= form.text_field :location, {:class => 'form-control'}  %>
   </div>
 
   <div class="field">
     <%= form.label :founder %>
-    <%= form.text_field :founder %>
-  </div>
-
-  <div class="field">
-    <%= form.label :musicians_id %>
-    <%= form.number_field :musicians_id %>
+    <%= form.text_field :founder, {:class => 'form-control'}  %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit("Add", {:class => 'btn btn-success '})%>
   </div>
 <% end %>

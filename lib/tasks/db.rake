@@ -18,28 +18,27 @@ namespace :db do
     Musician.delete_all
     Album.delete_all
     Studio.delete_all
-    i=0
-    Musician.populate(15) do |musician|
+    i=1
+    Studio.populate(10) do |studio|
+      studio.name=Faker::Book.publisher
+      studio.location=Faker::Address.full_address
+      studio.founder=Faker::Name.name
+      i+=1
+    end
+    i=1
+    Musician.populate(10) do |musician|
       musician.name=Faker::Name.first_name;
       musician.surname=Faker::Name.last_name;
       musician.age=Faker::Number.between(20,60)
       musician.home_adress=Faker::Address.city;
-      musician.studios_id=i
-      Album.populate(10) do |album|
+      musician.studio_id=i
+      Album.populate(3) do |album|
         album.name=Faker::Music.album;
         album.price=Faker::Number.between(5,100)
         album.genre=Faker::Music.genre;
         album.musicians_id=i
           #album.musicians_id=Faker::Number.between(1,15)
       end
-      i+=1
-    end
-    i=0
-    Studio.populate(15) do |studio|
-      studio.name=Faker::Book.publisher
-      studio.location=Faker::Address.full_address
-      studio.founder=Faker::Name.name
-      studio.musicians_id=i
       i+=1
     end
   end

@@ -15,7 +15,6 @@ ActiveRecord::Schema.define(version: 2019_12_09_190005) do
   create_table "albums", force: :cascade do |t|
     t.string "name"
     t.integer "price"
-    t.string "type"
     t.string "genre"
     t.integer "musicians_id"
     t.datetime "created_at", null: false
@@ -28,20 +27,20 @@ ActiveRecord::Schema.define(version: 2019_12_09_190005) do
     t.string "surname"
     t.integer "age"
     t.string "home_adress"
-    t.integer "studios_id"
+    t.integer "studio_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["studios_id"], name: "index_musicians_on_studios_id"
+    t.index ["studio_id"], name: "index_musicians_on_studio_id", unique: true
   end
 
   create_table "studios", force: :cascade do |t|
+    t.integer "album_id"
     t.string "name"
     t.string "location"
     t.string "founder"
-    t.integer "musicians_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["musicians_id"], name: "index_studios_on_musicians_id"
+    t.index ["album_id"], name: "index_studios_on_album_id"
   end
 
   create_table "users", force: :cascade do |t|

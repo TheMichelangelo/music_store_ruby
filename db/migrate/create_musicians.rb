@@ -5,7 +5,7 @@ class CreateMusicians < ActiveRecord::Migration[5.2]
       t.string :surname
       t.integer :age
       t.string :home_adress
-      t.integer :studio_id
+      t.belongs_to :studio,index: { unique: true }, foreign_key: true
 
       t.timestamps
     end
