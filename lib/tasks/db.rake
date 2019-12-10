@@ -36,7 +36,7 @@ namespace :db do
         album.name=Faker::Music.album;
         album.price=Faker::Number.between(5,100)
         album.genre=Faker::Music.genre;
-        album.musicians_id=i
+        album.musician_id=i
           #album.musicians_id=Faker::Number.between(1,15)
       end
       i+=1

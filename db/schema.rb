@@ -16,10 +16,10 @@ ActiveRecord::Schema.define(version: 2019_12_09_190005) do
     t.string "name"
     t.integer "price"
     t.string "genre"
-    t.integer "musicians_id"
+    t.integer "musician_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["musicians_id"], name: "index_albums_on_musicians_id"
+    t.index ["musician_id"], name: "index_albums_on_musician_id"
   end
 
   create_table "musicians", force: :cascade do |t|
