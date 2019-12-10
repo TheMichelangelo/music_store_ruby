@@ -56,11 +56,13 @@ class MusiciansController < ApplicationController
   # DELETE /musicians/1
   # DELETE /musicians/1.json
   def destroy
+    @musician = Musician.find(params[:id])
     @musician.destroy
-    respond_to do |format|
-      format.html { redirect_to musicians_url, notice: 'Musician was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    redirect_to Musician
+    #respond_to do |format|
+    #  format.html { redirect_to musicians_url, notice: 'Musician was successfully destroyed.' }
+    #  format.json { head :no_content }
+    #end
   end
 
   private

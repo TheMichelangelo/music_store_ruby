@@ -56,11 +56,13 @@ class StudiosController < ApplicationController
   # DELETE /studios/1
   # DELETE /studios/1.json
   def destroy
+    @studio = Studio.find(params[:id])
     @studio.destroy
-    respond_to do |format|
-      format.html { redirect_to studios_url, notice: 'Studio was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    redirect_to Studio
+    #respond_to do |format|
+    #  format.html { redirect_to studios_url, notice: 'Studio was successfully destroyed.' }
+    #  format.json { head :no_content }
+    #end
   end
 
   private
