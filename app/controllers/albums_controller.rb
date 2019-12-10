@@ -1,5 +1,5 @@
 class AlbumsController < ApplicationController
-  before_action :set_album, only: [:show, :edit, :update]
+  before_action :require_login, except: [:index,:show]
 
   # GET /albums
   # GET /albums.json
@@ -20,6 +20,7 @@ class AlbumsController < ApplicationController
 
   # GET /albums/1/edit
   def edit
+    @album = Album.find(params[:id])
   end
 
   # POST /albums

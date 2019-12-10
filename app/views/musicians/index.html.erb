@@ -10,8 +10,12 @@
       <th>Age</th>
       <th>Home adress</th>
       <th>Studio</th>
-      <th><%= link_to 'New Musician', new_musician_path, :class=>"btn btn-success"%></th>
-      <th colspan="2"></th>
+      <% if signed_in? -%>
+        <th><%= link_to 'New Musician', new_musician_path, :class=>"btn btn-success"%></th>
+        <th colspan="2"></th>
+      <% else -%>
+        <th></th>
+      <% end -%>
     </tr>
   </thead>
 
@@ -24,8 +28,11 @@
         <td><%= musician.home_adress %></td>
         <td><%= musician.studio.try(:name) %></td>
         <td><%= link_to 'Show', musician ,:class=>"btn btn-info" %></td>
-        <td><%= link_to 'Edit', edit_musician_path(musician),:class=>"btn btn-default" %></td>
-        <td><%= link_to 'Destroy', musician, method: :delete, data: { confirm: 'Are you sure?' } ,:class =>'btn btn-danger btn-sm'%></td>
+        <% if signed_in? -%>
+          <td><%= link_to 'Edit', edit_musician_path(musician),:class=>"btn btn-default" %></td>
+          <td><%= link_to 'Destroy', musician, method: :delete, data: { confirm: 'Are you sure?' } ,:class =>'btn btn-danger btn-sm'%></td>
+        <% else -%>
+        <% end -%>
       </tr>
     <% end %>
   </tbody>

@@ -1,5 +1,5 @@
 class MusiciansController < ApplicationController
-  before_action :set_musician, only: [:show, :edit, :update, :destroy]
+  before_action :require_login, except: [:index,:show]
 
   # GET /musicians
   # GET /musicians.json
@@ -10,7 +10,7 @@ class MusiciansController < ApplicationController
   # GET /musicians/1
   # GET /musicians/1.json
   def show
-    @studio = Studio.find(params[:id])
+    @musician = Musician.find(params[:id])
   end
 
   # GET /musicians/new
@@ -20,6 +20,7 @@ class MusiciansController < ApplicationController
 
   # GET /musicians/1/edit
   def edit
+    @musician = Musician.find(params[:id])
   end
 
   # POST /musicians

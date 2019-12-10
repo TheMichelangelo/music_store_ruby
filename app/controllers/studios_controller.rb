@@ -1,5 +1,5 @@
 class StudiosController < ApplicationController
-  before_action :set_studio, only: [:show, :edit, :update, :destroy]
+  before_action :require_login, except: [:index,:show]
 
   # GET /studios
   # GET /studios.json
@@ -20,6 +20,7 @@ class StudiosController < ApplicationController
 
   # GET /studios/1/edit
   def edit
+    @studio = Studio.find(params[:id])
   end
 
   # POST /studios
