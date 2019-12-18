@@ -22,7 +22,7 @@
         <li><a href="/musicians">Musicians</a></li>
         <li><a href="/studios">Studios</a></li>
         <% if signed_in? -%>
-          <li><%= button_to t(".sign_out"), sign_out_path, method: :delete %></li>
+          <li><%= link_to t(".sign_out"), sign_out_path, method: :delete%></li>
         <% else -%>
           <li><%= link_to t(".sign_in"), sign_in_path %></li>
         <% end -%>
