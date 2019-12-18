@@ -1,38 +1,41 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Studios</h1>
-
-<table class = "table table-striped">
-  <thead class="thead-dark">
-    <tr>
-      <th>Name</th>
-      <th>Location</th>
-      <th>Founder</th>
-      <th>Musician</th>
-      <% if signed_in? -%>
-        <th><%= link_to 'New Studio', new_studio_path, :class=>"btn btn-success" %></th>
-        <th colspan="2"></th>
-      <% else -%>
-        <th></th>
-      <% end -%>
-
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @studios.each do |studio| %>
+<div class="container" style="overflow: scroll;">
+  <div class="row justify-content-center">
+    <table class = "table table-striped">
+      <thead class="thead-dark">
       <tr>
-        <td><%= studio.name%></td>
-        <td><%= studio.location %></td>
-        <td><%= studio.founder %></td>
-        <td><%= studio.musician.try(:name) %></td>
-        <td><%= link_to 'Show', studio ,:class=>"btn btn-info"%></td>
+        <th>Name</th>
+        <th>Location</th>
+        <th>Founder</th>
+        <th>Musician</th>
         <% if signed_in? -%>
-          <td><%= link_to 'Edit', edit_studio_path(studio) ,:class=>"btn btn-default" %></td>
-          <td><%= link_to 'Destroy', studio, method: :delete, data: { confirm: 'Are you sure?' },:class =>'btn btn-danger btn-sm' %></td>
+          <th><%= link_to 'New Studio', new_studio_path, :class=>"btn btn-success" %></th>
+          <th colspan="2"></th>
         <% else -%>
+          <th></th>
         <% end -%>
+
       </tr>
-    <% end %>
-  </tbody>
-</table>
+      </thead>
+
+      <tbody>
+      <% @studios.each do |studio| %>
+        <tr>
+          <td><%= studio.name%></td>
+          <td><%= studio.location %></td>
+          <td><%= studio.founder %></td>
+          <td><%= studio.musician.try(:name) %></td>
+          <td><%= link_to 'Show', studio ,:class=>"btn btn-info"%></td>
+          <% if signed_in? -%>
+            <td><%= link_to 'Edit', edit_studio_path(studio) ,:class=>"btn btn-default" %></td>
+            <td><%= link_to 'Destroy', studio, method: :delete, data: { confirm: 'Are you sure?' },:class =>'btn btn-danger btn-sm' %></td>
+          <% else -%>
+          <% end -%>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
